@@ -29,8 +29,7 @@
 			<div class="week-row" th:each="week : ${weeks}">
 				<div class="day-cell"
 				     th:each="cell : ${week}"
-				     th:classappend="${cell.inCurrentMonth} ? '' : 'muted'"
-				     th:classappend="${cell.date.equals(today)} ? 'today' : ''">
+				     th:classappend="${(!cell.inCurrentMonth ? 'muted ' : '') + (cell.date.equals(today) ? 'today' : '')}">
 					<div class="day-head">
 						<a class="day-number"
 						   th:href="@{/calendar(year=${year},month=${month},selected=${cell.date})}"
